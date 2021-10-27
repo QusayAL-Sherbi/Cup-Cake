@@ -1,0 +1,21 @@
+span.welcome {
+  background-color: black;
+  color: white;
+  padding: 10px;
+}
+
+.img-logo {
+  width: 50px;
+  height: 50px;
+}
+
+.navbar-brand {
+  background-color: pink;
+  font-weight: bold;
+}
+
+.err-msg {
+  display: none;
+  color: #f00;
+  font-weight: bold;
+}

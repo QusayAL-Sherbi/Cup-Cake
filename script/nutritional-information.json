@@ -1,0 +1,27 @@
+[
+  {
+    "name": "Chocolate",
+    "calories": "high",
+    "weight": "200gm"
+  },
+  {
+    "name": "Carrot",
+    "calories": "medium",
+    "weight": "150gm"
+  },
+  {
+    "name": "Banana",
+    "calories": "high",
+    "weight": "200gm"
+  },
+  {
+    "name": "Strawberry",
+    "calories": "low",
+    "weight": "160gm"
+  },
+  {
+    "name": "Peanut",
+    "calories": "medium",
+    "weight": "200gm"
+  }
+]
