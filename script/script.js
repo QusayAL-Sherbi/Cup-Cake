@@ -58,7 +58,6 @@ function show_cupcakes() {
       let calorieThEl = document.querySelectorAll('.calore');
 
       calorieThEl.forEach(calorie => {
-        console.log(calorie)
         if (calorie.innerHTML === "high") {
           calorie.className = "bg-danger"
         } else if (calorie.getAttribute("data-calories") === "medium") {
@@ -162,14 +161,19 @@ function validate() {
   }
 
   if (typeInput.value === "Chocolate" && deliverInput.value === "4:00 PM") {
-    alert("Type Of Cake \"Chocolate\" Cannot Be Delivered at 4 PM")
+    alert("Type Of Cake \"Chocolate\" Cannot Be Delivered at 4:00 PM")
   }
 
 }
 
 function show_storage() {
   let welcomeMsg = document.getElementById('welcome');
-  welcomeMsg.innerHTML = `Welcome ${localStorage.getItem("name")}`;
+  if (localStorage.getItem("name") === null) {
+    alert("Cannot Complete This Process Before You Sign Up")
+    nameInput.focus();
+  } else {
+    welcomeMsg.innerHTML = `Welcome ${localStorage.getItem("name")}`;
+  }
 }
 
 submitBtn.onclick = function(e) {
