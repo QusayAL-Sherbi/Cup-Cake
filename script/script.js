@@ -91,10 +91,20 @@ function validate() {
   }
 
   // QTY (Count) Field Validation
-  if (countInput.value < 5 && countInput.value > 15) {
+  if (countInput.value === '') {
 
     countErrMsg.style.display = 'block';
-    countErrMsg.innerHTML = "Input Count Must Be Betweem 1 To 15 Character"
+    countErrMsg.innerHTML = "Input Count Can't Be Empty"
+
+  } else if (countInput.value < 1) {
+
+    countErrMsg.style.display = 'block';
+    countErrMsg.innerHTML = "Input Count Must Be 1 Character at Least"
+
+  } else if (countInput.value > 15)  {
+
+    countErrMsg.style.display = 'block';
+    countErrMsg.innerHTML = "Input Count Must Be Less Than 15 Character"
 
   } else {
 
