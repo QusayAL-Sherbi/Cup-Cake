@@ -17,7 +17,6 @@ let deliverErrMsg = document.querySelector('.delivery-err-msg');
 let allergiesInput = document.getElementById('allergies');
 let allergiesErrMsg = document.querySelector('.allergies-err-msg');
 
-// let tableHeader = document.querySelector('.table-header');
 let tableBody = document.getElementById('cupcake-table');
 
 let showInfoBtn = document.querySelector('.show-info-btn');
@@ -78,7 +77,12 @@ function validate() {
     nameErrMsg.style.display = 'block';
     nameErrMsg.innerHTML = "Input Name Field Can't Be Empty !"
 
-  } else if (nameInput.value < 5 && nameInput.value > 16) {
+  } else if (nameInput.value.length < 5) {
+
+    nameErrMsg.style.display = 'block';
+    nameErrMsg.innerHTML = "Input Name Must Be Between 1 To 16 Characters"
+  
+  } else if (nameInput.value.length > 16) {
 
     nameErrMsg.style.display = 'block';
     nameErrMsg.innerHTML = "Input Name Must Be Between 1 To 16 Characters"
@@ -165,13 +169,22 @@ function validate() {
   }
 
   if (typeInput.value === "Chocolate" && allergiesInput.value === "Dairy Free") {
-    alert("Type Of Cake \"Chocolate\" Is Not Dairy Free")
+
+    allergiesErrMsg.style.display = 'block';
+    allergiesErrMsg.innerHTML = 'Type Of Cake \"Chocolate\" Is Not Dairy Free';
+
   } else if (typeInput.value === "Pecan" && allergiesInput.value === "Not Free") {
-    alert("The Pecan Cake Is Not Nut Free")
+
+    allergiesErrMsg.style.display = 'block';
+    allergiesErrMsg.innerHTML = 'The Pecan Cake Is Not Nut Free';
+
   }
 
   if (typeInput.value === "Chocolate" && deliverInput.value === "4:00 PM") {
-    alert("Type Of Cake \"Chocolate\" Cannot Be Delivered at 4:00 PM")
+
+    deliverErrMsg.style.display = 'block'
+    deliverErrMsg.innerHTML = "Type Of Cake \"Chocolate\" Cannot Be Delivered at 4:00 PM";
+
   }
 
 }
@@ -179,7 +192,8 @@ function validate() {
 function show_storage() {
   let welcomeMsg = document.getElementById('welcome');
   if (localStorage.getItem("name") === null) {
-    alert("Cannot Complete This Process Before You Sign Up")
+    nameErrMsg.innerHTML = 'Cannot Complete This Process Before You Sign Up';
+    nameErrMsg.style.display = 'block';
     nameInput.focus();
   } else {
     welcomeMsg.innerHTML = `Welcome ${localStorage.getItem("name")}`;
